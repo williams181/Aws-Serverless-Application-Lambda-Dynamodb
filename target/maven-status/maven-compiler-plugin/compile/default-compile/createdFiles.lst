@@ -1,0 +1,4 @@
+br\ifpe\serverless\ApplicationServerless\api\LambdaMethodHandlerBill.class
+br\ifpe\serverless\ApplicationServerless\first\LambdaMethodHandler.class
+br\ifpe\serverless\ApplicationServerless\model\Bill.class
+br\ifpe\serverless\ApplicationServerless\first\LambdaMethodHandlerUppercase.class

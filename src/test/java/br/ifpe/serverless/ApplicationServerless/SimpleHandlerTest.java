@@ -11,6 +11,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 
+import br.ifpe.serverless.ApplicationServerless.first.LambdaMethodHandlerUppercase;
+
 @ExtendWith(MockitoExtension.class)
 public class SimpleHandlerTest {
 
