@@ -16,7 +16,7 @@ import br.ifpe.serverless.ApplicationServerless.model.PersonResponse;
 public class LambdaMethodCreate implements RequestHandler<PersonRequest, PersonResponse>{
 	 private AmazonDynamoDB amazonDynamoDB;
 
-	    private String DYNAMODB_TABLE_NAME = "http-crud-cadastro";
+	    private String DYNAMODB_TABLE_NAME = "Arquivos";
 	
 	  
 	@Override
@@ -40,10 +40,14 @@ public class LambdaMethodCreate implements RequestHandler<PersonRequest, PersonR
 			
      Item item = new Item()
      		.withPrimaryKey("id",personRequest.getId())
-     		.withString("nome",personRequest.getNome())
-     		.withString("sobreNome",personRequest.getSobreNome())
-     		.withInt("idade", personRequest.getIdade())
-     		.withString("endereco",personRequest.getEndereco());
+     		.withString("medico",personRequest.getMedico())
+     		.withInt("CRM",personRequest.getCRM())
+     		.withString("hospital", personRequest.getHospital())
+     		.withString("CNPJ",personRequest.getCNPJ())
+     		.withString("paciente",personRequest.getPaciente())
+     		.withString("convenio",personRequest.getConvenio())
+     		.withString("acomodacao", personRequest.getAcomodacao())
+     		.withString("procedimento",personRequest.getProcedimento());
      
    
      Table table = dynamodb.getTable(DYNAMODB_TABLE_NAME);

@@ -3,10 +3,14 @@ package br.ifpe.serverless.ApplicationServerless.model;
 public class PersonRequest {
 
 	private Integer id;
-    private String nome;
-    private String sobreNome;
-    private String endereco;
-    private int idade;
+    private String medico;
+    private int CRM;
+    private String hospital ;
+    private String CNPJ ;
+    private String paciente ;
+    private String convenio ;
+    private  String acomodacao ;
+    private String procedimento ;
     
     
     
@@ -17,33 +21,55 @@ public class PersonRequest {
 		this.id = id;
 	}
     
-	public String getNome() {
-		return nome;
+	public String getMedico() {
+		return medico;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setMedico(String medico) {
+		this.medico = medico;
+	}
+	public int getCRM() {
+		return CRM;
+	}
+	public void setCRM(int cRM) {
+		CRM = cRM;
+	}
+	public String getHospital() {
+		return hospital;
+	}
+	public void setHospital(String hospital) {
+		this.hospital = hospital;
+	}
+	public String getCNPJ() {
+		return CNPJ;
+	}
+	public void setCNPJ(String cNPJ) {
+		CNPJ = cNPJ;
+	}
+	public String getPaciente() {
+		return paciente;
+	}
+	public void setPaciente(String paciente) {
+		this.paciente = paciente;
+	}
+	public String getConvenio() {
+		return convenio;
+	}
+	public void setConvenio(String convenio) {
+		this.convenio = convenio;
+	}
+	public String getAcomodacao() {
+		return acomodacao;
+	}
+	public void setAcomodacao(String acomodacao) {
+		this.acomodacao = acomodacao;
+	}
+	public String getProcedimento() {
+		return procedimento;
+	}
+	public void setProcedimento(String procedimento) {
+		this.procedimento = procedimento;
 	}
 
-	public String getSobreNome() {
-		return sobreNome;
-	}
-	public void setSobreNome(String sobreNome) {
-		this.sobreNome = sobreNome;
-	}
-	
-
-	public String getEndereco() {
-		return endereco;
-	}
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-	public int getIdade() {
-		return idade;
-	}
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
 	
     
 }

@@ -18,7 +18,7 @@ import br.ifpe.serverless.ApplicationServerless.model.PersonResponse;
 public class LambdaMethodUpdate implements RequestHandler<PersonRequest, PersonResponse>{
 	 private AmazonDynamoDB amazonDynamoDB;
 
-	    private String DYNAMODB_TABLE_NAME = "http-crud-cadastro";
+	    private String DYNAMODB_TABLE_NAME = "Arquivos";
 	    
 		  
 		@Override
@@ -41,21 +41,30 @@ public class LambdaMethodUpdate implements RequestHandler<PersonRequest, PersonR
 	
 			
 		    Map<String, String> expressionAttributeNames = new HashMap<String, String>();
-		    expressionAttributeNames.put("#N", "nome");
-		    expressionAttributeNames.put("#S", "sobreNome");
-		    expressionAttributeNames.put("#I", "idade");
-		    expressionAttributeNames.put("#E", "endereco");
+		    expressionAttributeNames.put("#M", "medico");
+		    expressionAttributeNames.put("#C", "CRM");
+		    expressionAttributeNames.put("#H", "hospital");
+		    expressionAttributeNames.put("#CNPJ", "CNPJ");
+		    expressionAttributeNames.put("#PAC", "paciente");
+		    expressionAttributeNames.put("#CON", "convenio");
+		    expressionAttributeNames.put("#A", "acomodacao");
+		    expressionAttributeNames.put("#PRO", "procedimento");
 		  
 		    Map<String, Object> expressionAttributeValues = new HashMap<String, Object>();
-		    expressionAttributeValues.put(":val1", personRequest.getNome());
-		    expressionAttributeValues.put(":val2", personRequest.getSobreNome());
-		    expressionAttributeValues.put(":val3", personRequest.getIdade());
-		    expressionAttributeValues.put(":val4", personRequest.getEndereco());
+		    expressionAttributeValues.put(":val1", personRequest.getMedico());
+		    expressionAttributeValues.put(":val2", personRequest.getCRM());
+		    expressionAttributeValues.put(":val3", personRequest.getHospital());
+		    expressionAttributeValues.put(":val4", personRequest.getCNPJ());
+		    expressionAttributeValues.put(":val5", personRequest.getPaciente());
+		    expressionAttributeValues.put(":val6", personRequest.getConvenio());
+		    expressionAttributeValues.put(":val7", personRequest.getAcomodacao());
+		    expressionAttributeValues.put(":val8", personRequest.getProcedimento());
 		     
 		    UpdateItemOutcome outcome = table.updateItem(
 		        "id",          // key attribute name
 		        personRequest.getId(),           // key attribute value
-		        "set #N = :val1, #S = :val2 , #I = :val3, #E = :val4",// UpdateExpression
+		        "set #M = :val1, #C = :val2 , #H = :val3, #CNPJ = :val4,"
+		        + "#PAC = :val5, #CON = :val6 , #A = :val7, #PRO = :val8",// UpdateExpression
 		        expressionAttributeNames,
 		        expressionAttributeValues
 		        );
