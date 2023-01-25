@@ -25,7 +25,7 @@ import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 public class LambdaMethodGet implements RequestStreamHandler{
 	 private AmazonDynamoDB amazonDynamoDB;
 
-	    private String DYNAMODB_TABLE_NAME = "Arquivos";
+	    private String DYNAMODB_TABLE_NAME = "Registros_contas_medicas";
 	    
 		  
 	@SuppressWarnings("unchecked")
@@ -48,7 +48,7 @@ public class LambdaMethodGet implements RequestStreamHandler{
 	 
 		JSONObject reqObject;
 		Item item = null;
-		int id;
+		String id;
 			try {
 				
 				reqObject = (JSONObject) parser.parse(reader);
@@ -57,15 +57,16 @@ public class LambdaMethodGet implements RequestStreamHandler{
 					JSONObject pps = (JSONObject)reqObject.get("pathParameters");
 					
 					if(pps.get("id") != null) {
-						id = Integer.parseInt((String) pps.get("id"));
+						id = (String) pps.get("id");
 						item = table.getItem("id", id);
+					
 					
 					}
 				
 				}
 				if(item != null) {
 					//PersonRequest person = new PersonRequest(item.toJSON());
-					responseBody.put("Arquivos: ",item.toJSON());
+					responseBody.put("Arquivos: ", item.toJSON());
 					responseObject.put("statusCode", 200);
 				}else {
 					responseBody.put("message: ","nenhum item encontrado");

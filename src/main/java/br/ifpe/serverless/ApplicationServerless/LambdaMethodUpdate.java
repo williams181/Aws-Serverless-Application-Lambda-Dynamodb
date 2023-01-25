@@ -18,7 +18,7 @@ import br.ifpe.serverless.ApplicationServerless.model.PersonResponse;
 public class LambdaMethodUpdate implements RequestHandler<PersonRequest, PersonResponse>{
 	 private AmazonDynamoDB amazonDynamoDB;
 
-	    private String DYNAMODB_TABLE_NAME = "Arquivos";
+	    private String DYNAMODB_TABLE_NAME = "Registros_contas_medicas";
 	    
 		  
 		@Override

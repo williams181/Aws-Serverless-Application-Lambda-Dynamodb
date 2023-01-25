@@ -22,7 +22,7 @@ import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 public class LambdaMethodDelete implements  RequestStreamHandler{
 			private AmazonDynamoDB amazonDynamoDB;
 
-		    private String DYNAMODB_TABLE_NAME = "Arquivos";
+		    private String DYNAMODB_TABLE_NAME = "Registros_contas_medicas";
 		    
 		  
     @SuppressWarnings("unchecked")
