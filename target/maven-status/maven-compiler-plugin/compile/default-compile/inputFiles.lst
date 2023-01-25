@@ -4,3 +4,4 @@
 /home/jonatas/Documentos/ifpe/extensão AWS/-Aws-Serverless-Application-Dynamodb/src/main/java/br/ifpe/serverless/ApplicationServerless/model/PersonResponse.java
 /home/jonatas/Documentos/ifpe/extensão AWS/-Aws-Serverless-Application-Dynamodb/src/main/java/br/ifpe/serverless/ApplicationServerless/LambdaMethodUpdate.java
 /home/jonatas/Documentos/ifpe/extensão AWS/-Aws-Serverless-Application-Dynamodb/src/main/java/br/ifpe/serverless/ApplicationServerless/LambdaMethodGet.java
+/home/jonatas/Documentos/ifpe/extensão AWS/-Aws-Serverless-Application-Dynamodb/src/main/java/br/ifpe/serverless/ApplicationServerless/LambdaMethodGetAll.java

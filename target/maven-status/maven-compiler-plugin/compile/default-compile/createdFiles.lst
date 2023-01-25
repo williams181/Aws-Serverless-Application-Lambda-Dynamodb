@@ -1,6 +1,6 @@
 br/ifpe/serverless/ApplicationServerless/LambdaMethodGet.class
 br/ifpe/serverless/ApplicationServerless/model/PersonRequest.class
-br/ifpe/serverless/ApplicationServerless/LambdaMethodCreate.class
-br/ifpe/serverless/ApplicationServerless/model/PersonResponse.class
 br/ifpe/serverless/ApplicationServerless/LambdaMethodUpdate.class
 br/ifpe/serverless/ApplicationServerless/LambdaMethodDelete.class
+br/ifpe/serverless/ApplicationServerless/LambdaMethodCreate.class
+br/ifpe/serverless/ApplicationServerless/model/PersonResponse.class
