@@ -20,6 +20,8 @@ import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 
+import br.ifpe.serverless.ApplicationServerless.model.PersonRequest;
+
 
 
 public class LambdaMethodGet implements RequestStreamHandler{
@@ -28,7 +30,7 @@ public class LambdaMethodGet implements RequestStreamHandler{
 	    private String DYNAMODB_TABLE_NAME = "Registros_contas_medicas";
 	    
 		  
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "unused" })
 	@Override
 	 public void handleRequest(InputStream input, OutputStream output, Context context) throws IOException{
 			this.amazonDynamoDB = AmazonDynamoDBClient.builder()
@@ -65,8 +67,8 @@ public class LambdaMethodGet implements RequestStreamHandler{
 				
 				}
 				if(item != null) {
-					//PersonRequest person = new PersonRequest(item.toJSON());
-					responseBody.put("Arquivos: ", item.toJSON());
+					PersonRequest person = new PersonRequest(item.toJSON());
+					responseBody.put("Arquivos", person);
 					responseObject.put("statusCode", 200);
 				}else {
 					responseBody.put("message: ","nenhum item encontrado");

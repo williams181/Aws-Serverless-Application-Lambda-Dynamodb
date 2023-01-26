@@ -45,7 +45,7 @@ public class LambdaMethodGetAll implements RequestStreamHandler{
 
 	 	DynamoDB dynamodb = new DynamoDB(amazonDynamoDB);
 	 	
-		@SuppressWarnings("unused")
+		
 		Table table =dynamodb.getTable(DYNAMODB_TABLE_NAME);
 	 	
 	 	BufferedReader reader = new BufferedReader(new InputStreamReader(input));
@@ -64,33 +64,42 @@ public class LambdaMethodGetAll implements RequestStreamHandler{
 		DynamoDBMapper mapper = new DynamoDBMapper(amazonDynamoDB, mapperConfig);
 		
 		JSONObject reqObject;
+		PersonRequest registro = new PersonRequest();
 		try {
 		
 			reqObject = (JSONObject) parser.parse(reader);
+			System.out.println("antes do if");
 			if(reqObject.get("pathParameters") == null) {
 			
-				List<PersonRequest> scanResult = mapper.scan(PersonRequest.class, scanExpression);
-				List<Item> item = new ArrayList<Item>();
-				
-				for (PersonRequest book : scanResult) {
-		        	item.add(table.getItem("id", book.getId()));
-					
-				}
+			List<PersonRequest> scanResult = mapper.scan(PersonRequest.class, scanExpression);
+			System.out.println("antes do for");
+			List<PersonRequest> registros = new ArrayList<PersonRequest>();
 			
-			
-				responseBody.put("Resgistros: ",item);
-				responseObject.put("statusCode", 200);
+			for (PersonRequest book : scanResult) {
+				System.out.println("dentro do for");	
+	        Item item = table.getItem("id", book.getId());
+	        	
+	         registro = new PersonRequest(item.toJSON());
+	         registros.add(registro);
+	       
+	        }
+			if(!registros.isEmpty()) {
+			responseBody.put("Registros",registros);
+			responseObject.put("statusCode", 200);
+			}else {
+				responseBody.put("Message: ","nennhum item encontrado");
+				responseObject.put("statusCode", 404);
+			}
 		}
 		
 		}catch (Exception e) {
-			responseBody.put("Message: ","nennhum item encontrado");
-			responseObject.put("statusCode", 404);
+			System.out.println("Error "+e.getMessage());
 		}
-		responseObject.put("Body: ",responseBody.toString());
+		
 			     
-	
+		
 		OutputStreamWriter writer = new OutputStreamWriter(output);
-		writer.write(responseObject.toString());
+		writer.write(responseBody.toString());
 		
 	 	reader.close();
 	 	writer.close();
@@ -99,6 +108,8 @@ public class LambdaMethodGetAll implements RequestStreamHandler{
 	 	
     
 	}
- 
+
+
+	
 
 }

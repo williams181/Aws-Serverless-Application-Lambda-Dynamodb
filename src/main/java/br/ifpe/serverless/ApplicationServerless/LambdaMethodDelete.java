@@ -45,7 +45,7 @@ public class LambdaMethodDelete implements  RequestStreamHandler{
 			 
 				JSONObject reqObject;
 			
-				int id;
+				String id;
 					try {
 						
 						reqObject = (JSONObject) parser.parse(reader);
@@ -54,7 +54,7 @@ public class LambdaMethodDelete implements  RequestStreamHandler{
 							JSONObject pps = (JSONObject)reqObject.get("pathParameters");
 							
 							if(pps.get("id") != null) {
-								id = Integer.parseInt((String) pps.get("id"));
+								id = (String) pps.get("id");
 								table.deleteItem("id", id);
 								responseBody.put("Message: ", "deletetado com sucesso!");
 								responseObject.put("statusCode", 200);
