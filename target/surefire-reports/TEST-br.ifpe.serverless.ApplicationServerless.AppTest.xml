@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="br.ifpe.serverless.ApplicationServerless.AppTest" time="0.005" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="br.ifpe.serverless.ApplicationServerless.AppTest" time="0.007" errors="0" skipped="0">
   <properties>
     <property name="jansi.mode" value="force"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/jonatas/Documentos/ifpe/extensão AWS/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf10142911931025648480.tmp"/>
+    <property name="classworlds.conf" value="/home/jonatas/Documentos/ifpe/extensão AWS/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf16174129029454792912.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="jdk.debug" value="release"/>
@@ -56,5 +56,5 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="Temurin-17.0.4.1+1"/>
   </properties>
-  <testcase classname="br.ifpe.serverless.ApplicationServerless.AppTest" name="shouldAnswerWithTrue" time="0.005"/>
+  <testcase classname="br.ifpe.serverless.ApplicationServerless.AppTest" name="shouldAnswerWithTrue" time="0.007"/>
 </testsuite>

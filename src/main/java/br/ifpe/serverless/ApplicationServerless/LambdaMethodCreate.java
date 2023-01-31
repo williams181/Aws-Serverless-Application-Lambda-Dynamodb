@@ -10,48 +10,47 @@ import com.amazonaws.services.dynamodbv2.model.ConditionalCheckFailedException;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
-import br.ifpe.serverless.ApplicationServerless.model.PersonRequest;
-import br.ifpe.serverless.ApplicationServerless.model.PersonResponse;
+import br.ifpe.serverless.ApplicationServerless.model.Registro;
+import br.ifpe.serverless.ApplicationServerless.model.Message;
 
-public class LambdaMethodCreate implements RequestHandler<PersonRequest, PersonResponse>{
+public class LambdaMethodCreate implements RequestHandler<Registro, Message>{
 	 private AmazonDynamoDB amazonDynamoDB;
 
 	    private String DYNAMODB_TABLE_NAME = "Registros_contas_medicas";
 	
 		  
 	@Override
-	 public PersonResponse handleRequest(PersonRequest personRequest, Context context){
+	 public Message handleRequest(Registro registro, Context context){
 			
 		this.amazonDynamoDB = AmazonDynamoDBClientBuilder.standard()
 	            .withRegion(Regions.US_EAST_1)
 	            .build();
 		
-		 persistData(personRequest);
+		 persistData(registro);
 
-	      PersonResponse personResponse = new PersonResponse();
+	      Message personResponse = new Message();
 	      personResponse.setMessage("Saved Successfully!!!");
     
      return personResponse;
 	}
  
-	private void persistData(PersonRequest personRequest) throws ConditionalCheckFailedException {
+	private void persistData(Registro registro) throws ConditionalCheckFailedException {
 
 		
-		
-		
-		
 		DynamoDB dynamodb = new DynamoDB(amazonDynamoDB);
-			
+		
+	
+		System.out.println("persist "+Registro.radom());
 	     Item item = new Item()
-	    		.withPrimaryKey("id",personRequest.getId())
-	     		.withString("medico",personRequest.getMedico())
-	     		.withInt("CRM",personRequest.getCRM())
-	     		.withString("hospital", personRequest.getHospital())
-	     		.withString("CNPJ",personRequest.getCNPJ())
-	     		.withString("paciente",personRequest.getPaciente())
-	     		.withString("convenio",personRequest.getConvenio())
-	     		.withString("acomodacao", personRequest.getAcomodacao())
-	     		.withString("procedimento",personRequest.getProcedimento());
+	    		.withString("id", Registro.radom())
+	     		.withString("medico",registro.getMedico())
+	     		.withInt("CRM",registro.getCRM())
+	     		.withString("hospital", registro.getHospital())
+	     		.withString("CNPJ",registro.getCNPJ())
+	     		.withString("paciente",registro.getPaciente())
+	     		.withString("convenio",registro.getConvenio())
+	     		.withString("acomodacao", registro.getAcomodacao())
+	     		.withString("procedimento",registro.getProcedimento());
      
 	   
 	     Table table = dynamodb.getTable(DYNAMODB_TABLE_NAME);

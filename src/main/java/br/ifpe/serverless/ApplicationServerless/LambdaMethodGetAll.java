@@ -25,7 +25,7 @@ import com.amazonaws.services.dynamodbv2.model.ScanRequest;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 
-import br.ifpe.serverless.ApplicationServerless.model.PersonRequest;
+import br.ifpe.serverless.ApplicationServerless.model.Registro;
 
 
 
@@ -64,22 +64,22 @@ public class LambdaMethodGetAll implements RequestStreamHandler{
 		DynamoDBMapper mapper = new DynamoDBMapper(amazonDynamoDB, mapperConfig);
 		
 		JSONObject reqObject;
-		PersonRequest registro = new PersonRequest();
+		Registro registro = new Registro();
 		try {
 		
 			reqObject = (JSONObject) parser.parse(reader);
 			System.out.println("antes do if");
 			if(reqObject.get("pathParameters") == null) {
 			
-			List<PersonRequest> scanResult = mapper.scan(PersonRequest.class, scanExpression);
+			List<Registro> scanResult = mapper.scan(Registro.class, scanExpression);
 			System.out.println("antes do for");
-			List<PersonRequest> registros = new ArrayList<PersonRequest>();
+			List<Registro> registros = new ArrayList<Registro>();
 			
-			for (PersonRequest book : scanResult) {
+			for (Registro book : scanResult) {
 				System.out.println("dentro do for");	
 	        Item item = table.getItem("id", book.getId());
 	        	
-	         registro = new PersonRequest(item.toJSON());
+	         registro = new Registro(item.toJSON());
 	         registros.add(registro);
 	       
 	        }

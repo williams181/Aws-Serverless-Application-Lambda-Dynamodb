@@ -1,6 +1,6 @@
 package br.ifpe.serverless.ApplicationServerless.model;
 
-public class PersonResponse {
+public class Message {
     private String message;
 
 	public String getMessage() {

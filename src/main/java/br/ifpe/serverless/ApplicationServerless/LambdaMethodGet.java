@@ -20,7 +20,7 @@ import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
 
-import br.ifpe.serverless.ApplicationServerless.model.PersonRequest;
+import br.ifpe.serverless.ApplicationServerless.model.Registro;
 
 
 
@@ -67,7 +67,7 @@ public class LambdaMethodGet implements RequestStreamHandler{
 				
 				}
 				if(item != null) {
-					PersonRequest person = new PersonRequest(item.toJSON());
+					Registro person = new Registro(item.toJSON());
 					responseBody.put("Arquivos", person);
 					responseObject.put("statusCode", 200);
 				}else {
@@ -76,6 +76,7 @@ public class LambdaMethodGet implements RequestStreamHandler{
 				}
 				
 				responseObject.put("body", responseBody.toString());
+				
 			}catch (ParseException e) {
 			
 			context.getLogger().log("Error: "+e.getMessage());
