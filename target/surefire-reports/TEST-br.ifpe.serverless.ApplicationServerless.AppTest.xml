@@ -23,7 +23,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="os.name" value="Linux"/>
-    <property name="classworlds.conf" value="/home/jonatas/Documentos/ifpe/extensão AWS/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf16174129029454792912.tmp"/>
+    <property name="classworlds.conf" value="/home/jonatas/Documentos/ifpe/extensão AWS/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf6433146395959955390.tmp"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
     <property name="jdk.debug" value="release"/>
@@ -39,7 +39,7 @@
     <property name="java.class.path" value="/opt/sts-4.16.1-RELEASE/plugins/org.eclipse.m2e.maven.runtime_3.8.601.20220820-1147/jars/plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="17"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -Dstyle.color=always package"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B -Dstyle.color=always package shade:shade"/>
     <property name="java.home" value="/opt/sts-4.16.1-RELEASE/plugins/org.eclipse.justj.openjdk.hotspot.jre.full.linux.x86_64_17.0.4.v20221004-1257/jre"/>
     <property name="user.language" value="pt"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
